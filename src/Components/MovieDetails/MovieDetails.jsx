@@ -35,7 +35,7 @@ const MovieDetails = () => {
     <h1>{error}</h1>
   ) : (
     movie && (
-      <div>
+      <div className={css.container}>
         <img src={movie.poster_path} />
         <h1>{movie.original_title}</h1>
         <p>{movie.overview}</p>

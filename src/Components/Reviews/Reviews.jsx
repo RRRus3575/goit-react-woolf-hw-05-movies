@@ -32,9 +32,12 @@ const Reviews = ({ id }) => {
       </Link>
 
       <ul>
-        {data.map((el) => {
-          <li>{el.content}</li>;
-        })}
+        {data.map((el) => (
+          <li key={el.id}>
+            <p>{el.author}</p>
+            <p>{el.content}</p>
+          </li>
+        ))}
       </ul>
     </div>
   );

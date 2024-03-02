@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getApiSingleCast } from "../API/getAPImovies";
+import css from "./Cast.module.css";
 
 const Cast = ({ id }) => {
   const [data, setData] = useState([]);
@@ -26,15 +27,15 @@ const Cast = ({ id }) => {
   };
 
   return (
-    <div>
+    <div className={css.container}>
       <Link to={`/movies/${id}/cast`} onClick={getSingleAPI}>
         Cast
       </Link>
 
-      <ul>
-        {data.map((el) => {
-          <li>{el.name}</li>;
-        })}
+      <ul className={css.list}>
+        {data.map((el) => (
+          <li key={el.id}>{el.name}</li>
+        ))}
       </ul>
     </div>
   );
