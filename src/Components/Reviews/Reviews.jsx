@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getApiSingleReviews } from "../API/getAPImovies";
 import LoaderExampleText from "../LoaderExampleText/LoaderExampleText";
+import css from "./Reviews.module.css";
 
 const Reviews = ({ id }) => {
   const [data, setData] = useState(null);
@@ -37,9 +38,9 @@ const Reviews = ({ id }) => {
       {loading ? (
         <LoaderExampleText />
       ) : error ? (
-        <p>Not reviews 😔</p>
+        <p>No reviews 😔</p>
       ) : (
-        <ul>
+        <ul className={css.list}>
           {data &&
             data.map((el) => (
               <li key={el.id}>
