@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import css from "./Home.module.css";
+import css from "./Render.module.css";
 
-const Home = ({ data }) => {
+const Render = ({ data }) => {
   return (
     <ul className={css.moviesList}>
-      {data.map(({ id, title, poster_path, vote_average }) => (
+      {data.map(({ id, title, poster_path, vote_average, name }) => (
         <li key={id}>
           <Link className={css.item} to={`/movies/${id}`}>
             <img src={poster_path} />
-            <p>{title}</p>
+            {title ? <p>{title}</p> : <p>{name}</p>}
             <p>{vote_average.toFixed(2)}</p>
           </Link>
         </li>
@@ -17,4 +17,4 @@ const Home = ({ data }) => {
   );
 };
 
-export default Home;
+export default Render;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Home from "../../Components/Home/Home";
+import Render from "../../Components/Render/Render";
 import { getApiMovies } from "../../Components/API/getAPImovies";
 
 const HomePage = () => {
@@ -13,6 +13,7 @@ const HomePage = () => {
         setLoading(true);
         setError("");
         const data = await getApiMovies();
+        console.log(data);
         setData(data.results);
       } catch (error) {
         console.log(error);
@@ -29,7 +30,7 @@ const HomePage = () => {
   ) : error ? (
     <h1>{error}</h1>
   ) : (
-    <Home data={data} />
+    <Render data={data} />
   );
 };
 
