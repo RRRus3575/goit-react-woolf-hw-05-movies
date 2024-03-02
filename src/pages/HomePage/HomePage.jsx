@@ -25,12 +25,17 @@ const HomePage = () => {
     getAPI();
   }, []);
 
-  return loading ? (
-    <h1>Loading</h1>
-  ) : error ? (
-    <h1>{error}</h1>
-  ) : (
-    <Render data={data} />
+  return (
+    <div className="container">
+      <h1>Trending today</h1>
+      {loading ? (
+        <h1>Loading</h1>
+      ) : error ? (
+        <h1>{error}</h1>
+      ) : (
+        <Render data={data} />
+      )}
+    </div>
   );
 };
 

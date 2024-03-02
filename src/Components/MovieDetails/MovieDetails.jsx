@@ -1,7 +1,9 @@
 import { getApiSingleMovie } from "../../Components/API/getAPImovies";
-
-import { Link, Outlet, useParams } from "react-router-dom";
+import css from "./MovieDetails.module.css";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Cast from "../Cast/Cast";
+import Reviews from "../Reviews/Reviews";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -37,6 +39,15 @@ const MovieDetails = () => {
         <img src={movie.poster_path} />
         <h1>{movie.original_title}</h1>
         <p>{movie.overview}</p>
+        <ul className={css.list}>
+          <li>
+            <Cast id={id} />
+          </li>
+
+          <li>
+            <Reviews id={id} />
+          </li>
+        </ul>
       </div>
     )
   );

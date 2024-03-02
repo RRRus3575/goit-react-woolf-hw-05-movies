@@ -9,15 +9,6 @@ const MovieDetailsPages = () => {
   return (
     <>
       <MovieDetails />
-      <Outlet />
-      <ul>
-        <li>
-          <Cast />
-        </li>
-        <li>
-          <Reviews />
-        </li>
-      </ul>
     </>
   );
 };

@@ -20,3 +20,15 @@ export const getApiSearch = async (search) => {
   );
   return data;
 };
+export const getApiSingleCast = async (id) => {
+  const { data } = await axios(
+    `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US&authorization=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMzYyMWE1ZDc2ZjllZjMzYjA2YzA3MDRhYzNkOGJiYSIsInN1YiI6IjY1ZTJkOGY5OTk3OWQyMDE0OWFmMmViMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qo8shEPAbKViwlFQ3oddJMr-xKSYiuzHijoGy_EhAYQ&api_key=13621a5d76f9ef33b06c0704ac3d8bba`
+  );
+  return data;
+};
+export const getApiSingleReviews = async (id) => {
+  const { data } = await axios(
+    `https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&authorization=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMzYyMWE1ZDc2ZjllZjMzYjA2YzA3MDRhYzNkOGJiYSIsInN1YiI6IjY1ZTJkOGY5OTk3OWQyMDE0OWFmMmViMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qo8shEPAbKViwlFQ3oddJMr-xKSYiuzHijoGy_EhAYQ&api_key=13621a5d76f9ef33b06c0704ac3d8bba`
+  );
+  return data;
+};

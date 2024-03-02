@@ -33,7 +33,7 @@ const Movies = () => {
   };
 
   return (
-    <>
+    <div className="container">
       <Form submitForm={submitForm} />
       {loading ? (
         <h1>Loading</h1>
@@ -46,7 +46,7 @@ const Movies = () => {
           </div>
         )
       )}
-    </>
+    </div>
   );
 };
 
