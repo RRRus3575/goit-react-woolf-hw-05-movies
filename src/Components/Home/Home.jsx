@@ -1,10 +1,19 @@
-import Header from "../Header/Header";
+import { Link } from "react-router-dom";
+import css from "./Home.module.css";
 
-const Home = () => {
+const Home = ({ data }) => {
   return (
-    <>
-      <div>home</div>
-    </>
+    <ul className={css.moviesList}>
+      {data.map(({ id, title, poster_path, vote_average }) => (
+        <li key={id}>
+          <Link className={css.item} to={`/movies/${id}`}>
+            <img src={poster_path} />
+            <p>{title}</p>
+            <p>{vote_average.toFixed(2)}</p>
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 };
 

@@ -1,18 +1,18 @@
-import { useState } from "react";
-
 import "./App.css";
 import Header from "./Components/Header/Header";
 import { Route, Routes } from "react-router-dom";
-import Home from "./Components/Home/Home";
-import Movies from "./Components/Movies/Movies";
+import HomePage from "./pages/HomePage/HomePage";
+import MovieDetailsPages from "./pages/MovieDetailsPages/MovieDetailsPages";
+import MoviesPages from "./pages/MoviesPages/MoviesPages";
 
 const App = () => {
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movies" element={<MoviesPages />} />
+        <Route path="/movies/:id" element={<MovieDetailsPages />} />
       </Routes>
     </>
   );

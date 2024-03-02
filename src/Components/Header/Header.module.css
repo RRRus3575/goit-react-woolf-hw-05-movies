@@ -5,3 +5,7 @@
   font-size: 18px;
   background-color: rgb(124, 146, 130);
 }
+.nav li:hover {
+  text-decoration: underline;
+  color: #0c160d;
+}

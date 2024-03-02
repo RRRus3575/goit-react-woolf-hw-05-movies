@@ -20,11 +20,7 @@ ul {
 a {
   font-weight: 500;
   color: #23362f;
-  text-decoration: inherit;
-}
-a:hover {
-  text-decoration: underline;
-  color: #0c160d;
+  text-decoration: none;
 }
 
 body {
