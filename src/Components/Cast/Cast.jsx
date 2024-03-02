@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getApiSingleCast } from "../API/getAPImovies";
 import css from "./Cast.module.css";
+import LoaderExampleText from "../LoaderExampleText/LoaderExampleText";
 
 const Cast = ({ id }) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -31,12 +32,13 @@ const Cast = ({ id }) => {
       <Link to={`/movies/${id}/cast`} onClick={getSingleAPI}>
         Cast
       </Link>
-
-      <ul className={css.list}>
-        {data.map((el) => (
-          <li key={el.id}>{el.name}</li>
-        ))}
-      </ul>
+      {loading ? (
+        <LoaderExampleText />
+      ) : (
+        <ul className={css.list}>
+          {data && data.map((el) => <li key={el.id}>{el.name}</li>)}
+        </ul>
+      )}
     </div>
   );
 };

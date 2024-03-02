@@ -1,4 +1,5 @@
 import { getApiSearch } from "../API/getAPImovies";
+import LoaderExampleText from "../LoaderExampleText/LoaderExampleText";
 import Render from "../Render/Render";
 import Form from "../form/Form";
 import { useEffect, useState } from "react";
@@ -36,7 +37,7 @@ const Movies = () => {
     <div className="container">
       <Form submitForm={submitForm} />
       {loading ? (
-        <h1>Loading</h1>
+        <LoaderExampleText />
       ) : error ? (
         <h1>{error}</h1>
       ) : (

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Render from "../../Components/Render/Render";
 import { getApiMovies } from "../../Components/API/getAPImovies";
+import LoaderExampleText from "../../Components/LoaderExampleText/LoaderExampleText";
 
 const HomePage = () => {
   const [data, setData] = useState([]);
@@ -29,7 +30,7 @@ const HomePage = () => {
     <div className="container">
       <h1>Trending today</h1>
       {loading ? (
-        <h1>Loading</h1>
+        <LoaderExampleText />
       ) : error ? (
         <h1>{error}</h1>
       ) : (

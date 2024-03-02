@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Cast from "../Cast/Cast";
 import Reviews from "../Reviews/Reviews";
+import LoaderExampleText from "../LoaderExampleText/LoaderExampleText";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -30,7 +31,7 @@ const MovieDetails = () => {
   }, [id]);
 
   return loading ? (
-    <h1>Loading...</h1>
+    <LoaderExampleText />
   ) : error ? (
     <h1>{error}</h1>
   ) : (

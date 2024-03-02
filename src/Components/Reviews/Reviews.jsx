@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getApiSingleReviews } from "../API/getAPImovies";
+import LoaderExampleText from "../LoaderExampleText/LoaderExampleText";
 
 const Reviews = ({ id }) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -15,6 +16,9 @@ const Reviews = ({ id }) => {
       setLoading(true);
       setError("");
       const data = await getApiSingleReviews(id);
+      if (data.results.length === 0) {
+        setError("error");
+      }
       console.log(data.results);
       setData(data.results);
     } catch (error) {
@@ -30,15 +34,21 @@ const Reviews = ({ id }) => {
       <Link to={`/movies/${id}/reviews`} onClick={getSingleAPI}>
         Rewiews
       </Link>
-
-      <ul>
-        {data.map((el) => (
-          <li key={el.id}>
-            <p>{el.author}</p>
-            <p>{el.content}</p>
-          </li>
-        ))}
-      </ul>
+      {loading ? (
+        <LoaderExampleText />
+      ) : error ? (
+        <p>Not reviews 😔</p>
+      ) : (
+        <ul>
+          {data &&
+            data.map((el) => (
+              <li key={el.id}>
+                <p>{el.author}</p>
+                <p>{el.content}</p>
+              </li>
+            ))}
+        </ul>
+      )}
     </div>
   );
 };
