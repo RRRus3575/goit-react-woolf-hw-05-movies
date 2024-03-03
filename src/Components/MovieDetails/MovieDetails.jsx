@@ -11,6 +11,8 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const defaultImg =
+    "<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>";
 
   useEffect(() => {
     const getSingleAPI = async () => {
@@ -37,7 +39,16 @@ const MovieDetails = () => {
   ) : (
     movie && (
       <div className={css.container}>
-        <img src={movie.poster_path} />
+        <img
+          src={
+            movie.poster_path
+              ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+              : defaultImg
+          }
+          width={250}
+          alt="poster"
+        />
+
         <h1>{movie.original_title}</h1>
         <p>{movie.overview}</p>
         <ul className={css.list}>

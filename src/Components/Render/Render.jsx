@@ -2,12 +2,24 @@ import { Link } from "react-router-dom";
 import css from "./Render.module.css";
 
 const Render = ({ data }) => {
+  const defaultImg =
+    "<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>";
+
   return (
     <ul className={css.moviesList}>
       {data.map(({ id, title, poster_path, vote_average, name }) => (
         <li key={id}>
           <Link className={css.item} to={`/movies/${id}`}>
-            <img src={poster_path} />
+            <img
+              src={
+                poster_path
+                  ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                  : defaultImg
+              }
+              width={50}
+              alt="poster"
+            />
+
             {title ? <p>{title}</p> : <p>{name}</p>}
             <p>{vote_average.toFixed(2)}</p>
           </Link>
