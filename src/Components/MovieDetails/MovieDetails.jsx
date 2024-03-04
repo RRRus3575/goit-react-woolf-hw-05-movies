@@ -35,8 +35,7 @@ const MovieDetails = () => {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    const isSure = window.confirm("Do you want go back?");
-    isSure && navigate(location.state);
+    navigate(location.state);
   };
 
   return loading ? (
