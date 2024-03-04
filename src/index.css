@@ -4,7 +4,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  box-sizing: border-box;
   color-scheme: light dark;
 
   font-synthesis: none;
@@ -40,4 +40,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+button {
+  border: 1px solid #23362f;
+  font-weight: 600;
+  font-size: 17px;
+
+  padding: 8px 17px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #d0e0db;
+  color: #23362f;
+  transition: color 300ms linear, background-color 300ms linear;
+}
+button:hover,
+button:focus {
+  background-color: #23362f;
+  color: #d0e0db;
 }
