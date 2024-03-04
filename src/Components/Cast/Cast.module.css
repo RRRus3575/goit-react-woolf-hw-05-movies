@@ -3,3 +3,6 @@
   flex-direction: column;
   gap: 10px;
 }
+.link {
+  font-size: 22px;
+}

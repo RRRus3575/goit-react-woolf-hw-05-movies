@@ -32,7 +32,11 @@ const Reviews = ({ id }) => {
 
   return (
     <div>
-      <Link to={`/movies/${id}/reviews`} onClick={getSingleAPI}>
+      <Link
+        to={`/movies/${id}/reviews`}
+        onClick={getSingleAPI}
+        className={css.link}
+      >
         Rewiews
       </Link>
       {loading ? (
@@ -43,8 +47,8 @@ const Reviews = ({ id }) => {
         <ul className={css.list}>
           {data &&
             data.map((el) => (
-              <li key={el.id}>
-                <p>{el.author}</p>
+              <li key={el.id} className={css.item}>
+                <p className={css.author}>{el.author}</p>
                 <p>{el.content}</p>
               </li>
             ))}

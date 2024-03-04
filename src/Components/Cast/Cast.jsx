@@ -29,7 +29,11 @@ const Cast = ({ id }) => {
 
   return (
     <div className={css.container}>
-      <Link to={`/movies/${id}/cast`} onClick={getSingleAPI}>
+      <Link
+        to={`/movies/${id}/cast`}
+        onClick={getSingleAPI}
+        className={css.link}
+      >
         Cast
       </Link>
       {loading ? (

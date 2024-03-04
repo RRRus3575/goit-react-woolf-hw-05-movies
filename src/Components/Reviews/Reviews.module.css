@@ -1,4 +1,16 @@
 .list {
+  padding: 20px 0;
   flex-direction: column;
-  gap: 10px;
+}
+.link {
+  font-size: 22px;
+}
+.item {
+  border-top: 1px solid #23362f;
+}
+.item:last-child {
+  border-bottom: 1px solid #23362f;
+}
+.author {
+  font-weight: bolder;
 }
