@@ -20,8 +20,8 @@ const Render = ({ data }) => {
               alt="poster"
             />
 
-            {title ? <p>{title}</p> : <p>{name}</p>}
-            <p>{vote_average.toFixed(2)}</p>
+            {title ? <h3>{title}</h3> : <h3>{name}</h3>}
+            <p>Rating: {vote_average.toFixed(2)}</p>
           </Link>
         </li>
       ))}

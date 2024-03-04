@@ -58,3 +58,7 @@ button:focus {
   background-color: #23362f;
   color: #d0e0db;
 }
+img {
+  display: block;
+  border-radius: 5px;
+}

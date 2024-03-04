@@ -13,7 +13,6 @@ const MovieDetails = () => {
   const [error, setError] = useState("");
   const defaultImg = "https://cdn-icons-png.flaticon.com/512/4054/4054617.png";
   const location = useLocation();
-  console.log("location", location);
 
   useEffect(() => {
     const getSingleAPI = async () => {
@@ -50,7 +49,7 @@ const MovieDetails = () => {
         <button onClick={handleBack} className={css.button}>
           Back
         </button>
-        <div>
+        <div className={css.wrap}>
           <img
             src={
               movie.poster_path
@@ -62,8 +61,26 @@ const MovieDetails = () => {
             alt="poster"
           />
           <div>
-            <h1>{movie.original_title}</h1>
-            <p>{movie.overview}</p>
+            <h1>{movie.title}</h1>
+            <p>
+              <span>Rating: </span> {movie.vote_average.toFixed(2)}
+            </p>
+            <p>
+              <span>Contries: </span>
+              {movie.production_countries.map((el) => el.name)}
+            </p>
+            <p>
+              <span>Studio: </span>{" "}
+              {movie.production_companies.map((el) => el.name)}
+            </p>
+            <p>
+              <span>Release date: </span>
+              {movie.release_date}
+            </p>
+            <p className={css.wrapper}>
+              <span>Descriprion: </span>
+              {movie.overview}
+            </p>
           </div>
         </div>
 
