@@ -4,6 +4,7 @@
   padding: 25px 250px;
   font-size: 18px;
   background-color: rgb(124, 146, 130);
+  transition: color 300ms linear, decoration 300ms linear;
 }
 .navLink:hover {
   text-decoration: underline;

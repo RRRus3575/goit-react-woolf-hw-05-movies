@@ -11,6 +11,7 @@
   border: 1px solid;
   border-radius: 5px;
   font-size: 17px;
+  transition: background-color 300ms linear;
 }
 .item:hover {
   cursor: pointer;
