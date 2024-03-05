@@ -31,44 +31,15 @@ const Movies = () => {
     search && getAPI();
   }, [searchParams]);
 
-  // useEffect(() => {
-  //   async function getAPI() {
-  //     try {
-  //       setLoading(true);
-  //       setError("");
-  //       const data = await getApiSearch(search);
-  //       console.log(data);
-  //       setData(data.results);
-  //     } catch (error) {
-  //       console.log(error);
-  //       setError(error.message);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   }
-  //   search.length > 1 && getAPI();
-  // }, [search]);
-
-  // const submitForm = (text) => {
-  //   console.log(text);
-  //   setSearch(text);
-  // };
-
   return (
     <div className="container">
-      <Form
-      // submitForm={submitForm}
-      />
-      {loading ? (
-        <LoaderExampleText />
-      ) : error ? (
-        <h1>{error}</h1>
-      ) : (
-        data.length > 1 && (
-          <div>
-            <Render data={data} />
-          </div>
-        )
+      <Form />
+      {loading && <LoaderExampleText />}
+      {error && <h1>{error}</h1>}
+      {data.length > 0 && (
+        <div>
+          <Render data={data} />
+        </div>
       )}
     </div>
   );

@@ -29,13 +29,9 @@ const HomePage = () => {
   return (
     <div className="container">
       <h1>Trending today</h1>
-      {loading ? (
-        <LoaderExampleText />
-      ) : error ? (
-        <h1>{error}</h1>
-      ) : (
-        <Render data={data} />
-      )}
+      {loading && <LoaderExampleText />}
+      {error.length > 0 && <h1>{error}</h1>}
+      {data.length > 0 && <Render data={data} />}
     </div>
   );
 };

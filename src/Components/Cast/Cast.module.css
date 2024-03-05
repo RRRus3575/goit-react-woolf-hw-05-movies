@@ -1,8 +1,7 @@
 .list {
-  list-style: inside;
-  flex-direction: column;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 30px;
 }
-.link {
-  font-size: 22px;
+.list li {
+  width: 200px;
 }
