@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getApiSingleReviews } from "../API/getAPImovies";
 import LoaderExampleText from "../LoaderExampleText/LoaderExampleText";
 import css from "./Reviews.module.css";
 
-const Reviews = ({ id, reviewSwitch }) => {
+const Reviews = ({ reviewSwitch }) => {
   const [dataReviews, setDataReviews] = useState([]);
   const [errorDetails, setErrorDetails] = useState(false);
   const [loadingReviews, setLoadingReviews] = useState(false);
+  const { id } = useParams();
 
   useEffect(() => {
     const getApiReviews = async () => {
@@ -16,7 +17,7 @@ const Reviews = ({ id, reviewSwitch }) => {
         setErrorDetails(false);
         const data = await getApiSingleReviews(id);
         if (data.results.length === 0) {
-          setError("error");
+          setErrorDetails("error");
         }
 
         setDataReviews(data.results);

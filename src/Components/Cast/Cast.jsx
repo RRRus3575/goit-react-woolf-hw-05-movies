@@ -2,12 +2,14 @@ import css from "./Cast.module.css";
 import LoaderExampleText from "../LoaderExampleText/LoaderExampleText";
 import { useEffect, useState } from "react";
 import { getApiSingleCast } from "../API/getAPImovies";
+import { useParams } from "react-router-dom";
 
-const Cast = ({ id, castOn }) => {
+const Cast = ({ castOn }) => {
   const defaultImg = "https://cdn-icons-png.flaticon.com/512/4054/4054617.png";
 
   const [dataCast, setDataCast] = useState(null);
   const [loadingCast, setLoadingCast] = useState(false);
+  const { id } = useParams();
 
   useEffect(() => {
     const getAPICast = async () => {

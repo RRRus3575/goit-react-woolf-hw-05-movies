@@ -136,7 +136,7 @@ const MovieDetails = () => {
               >
                 Rewiews
               </Link>
-              <Reviews id={id} reviewSwitch={reviews} />
+              <Reviews reviewSwitch={reviews} />
             </li>
           </ul>
         </div>
