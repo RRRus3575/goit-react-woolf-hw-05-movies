@@ -1,17 +1,37 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { getApiSingleCast } from "../API/getAPImovies";
 import css from "./Cast.module.css";
 import LoaderExampleText from "../LoaderExampleText/LoaderExampleText";
+import { useEffect, useState } from "react";
+import { getApiSingleCast } from "../API/getAPImovies";
 
-const Cast = ({ data, loading }) => {
+const Cast = ({ id, castOn }) => {
   const defaultImg = "https://cdn-icons-png.flaticon.com/512/4054/4054617.png";
+
+  const [dataCast, setDataCast] = useState(null);
+  const [loadingCast, setLoadingCast] = useState(false);
+
+  useEffect(() => {
+    const getAPICast = async () => {
+      try {
+        setLoadingCast(true);
+
+        const data = await getApiSingleCast(id);
+
+        setDataCast(data.cast);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoadingCast(false);
+      }
+    };
+    castOn && getAPICast();
+  }, [castOn]);
+
   return (
     <>
-      {loading && <LoaderExampleText />}
-      {data && (
+      {loadingCast && <LoaderExampleText />}
+      {castOn && dataCast && (
         <ul className={css.list}>
-          {data.map((el) => (
+          {dataCast.map((el) => (
             <li key={el.id}>
               <img
                 src={

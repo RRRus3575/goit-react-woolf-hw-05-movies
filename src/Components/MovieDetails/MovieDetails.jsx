@@ -23,46 +23,16 @@ const MovieDetails = () => {
   const [error, setError] = useState("");
   const defaultImg = "https://cdn-icons-png.flaticon.com/512/4054/4054617.png";
   const location = useLocation();
-  const [dataCast, setCast] = useState(null);
-  const [dataReviews, setDataReviews] = useState([]);
-  const [loadingCast, setLoadingCast] = useState(false);
+  const [reviews, setReviews] = useState(false);
+  const [cast, setCast] = useState(false);
 
-  const [errorDetails, setErrorDetails] = useState(false);
-  const [loadingReviews, setLoadingReviews] = useState(false);
-
-  const getApiReviews = async () => {
-    try {
-      console.log("getReviews");
-      setLoadingReviews(true);
-      setErrorDetails(false);
-      const data = await getApiSingleReviews(id);
-      if (data.results.length === 0) {
-        setError("error");
-      }
-      console.log(data.results);
-      setDataReviews(data.results);
-    } catch (error) {
-      console.log(error);
-      setErrorDetails(error.message);
-    } finally {
-      setLoadingReviews(false);
-    }
+  const getCast = () => {
+    setCast((prev) => !prev);
   };
-
-  const getAPICast = async () => {
-    try {
-      console.log("getCast");
-      setLoadingCast(true);
-      setErrorDetails("");
-      const data = await getApiSingleCast(id);
-      console.log(data);
-      setCast(data.cast);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoadingCast(false);
-    }
+  const getReviews = () => {
+    setReviews((prev) => !prev);
   };
+  console.log("location", location);
 
   useEffect(() => {
     const getSingleAPI = async () => {
@@ -70,7 +40,7 @@ const MovieDetails = () => {
         setLoading(true);
         setError("");
         const data = await getApiSingleMovie(id);
-        console.log(data);
+
         setMovie(data);
       } catch (error) {
         console.log(error);
@@ -85,7 +55,7 @@ const MovieDetails = () => {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate(location.state);
+    navigate(location.state || "/");
   };
 
   return (
@@ -150,27 +120,23 @@ const MovieDetails = () => {
             <li>
               <Link
                 to={`/movies/${id}/cast`}
-                onClick={getAPICast}
+                onClick={getCast}
                 className={css.link}
               >
                 Cast
               </Link>
-              <Cast data={dataCast} loading={loadingCast} />
+              <Cast castOn={cast} id={id} />
             </li>
 
             <li>
               <Link
                 to={`/movies/${id}/reviews`}
-                onClick={getApiReviews}
+                onClick={getReviews}
                 className={css.link}
               >
                 Rewiews
               </Link>
-              <Reviews
-                data={dataReviews}
-                loading={loadingReviews}
-                error={errorDetails}
-              />
+              <Reviews id={id} reviewSwitch={reviews} />
             </li>
           </ul>
         </div>

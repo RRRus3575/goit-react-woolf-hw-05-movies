@@ -4,6 +4,8 @@ import css from "./Render.module.css";
 const Render = ({ data }) => {
   const defaultImg = "https://cdn-icons-png.flaticon.com/512/4054/4054617.png";
   const location = useLocation();
+
+  console.log("renderloc", location);
   return (
     <ul className={css.moviesList}>
       {data.map(({ id, title, poster_path, vote_average, name }) => (

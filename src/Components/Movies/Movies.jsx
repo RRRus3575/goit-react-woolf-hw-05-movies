@@ -19,7 +19,7 @@ const Movies = () => {
         setLoading(true);
         setError("");
         const data = await getApiSearch(search);
-        console.log(data.results);
+
         setData(data.results);
       } catch (error) {
         console.log(error);

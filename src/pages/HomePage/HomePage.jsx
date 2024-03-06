@@ -14,7 +14,7 @@ const HomePage = () => {
         setLoading(true);
         setError("");
         const data = await getApiMovies();
-        console.log(data);
+
         setData(data.results);
       } catch (error) {
         console.log(error);
